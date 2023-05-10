@@ -4,7 +4,10 @@
 Sometimes planning events with friends can be hard. My application is going to be a combined calendar where users can log in, add friends, and invite those friends to calendar events. Say I want to set up a double date with my husband and another couple. Using my application, I can send a proposed event to everyone involved. Once they receive the request they can confirm it, deny it and offer an alternative, or simply deny it. Users will able to see what events they have confirmed or waht events they have and haven't confirmed. Additionally, I might allow the app to have a place where users can list what days/times during the week they are available so their friends can ask to schedule events during those times. I'm trying to keep it as simple as possible right now, but I think it will be useful!
 
 # Proposed Photos of Application in Use
-![Login page appearance](blob/main/log%20in%20page.jpg)
+![Login page appearance](https://github.com/MakennaAllred/startup/blob/main/log%20in%20page.jpg?raw=true)
+![Notification page appearance](https://github.com/MakennaAllred/startup/blob/main/notifications.jpg?raw=true)
+![Calendar page appearance](https://github.com/MakennaAllred/startup/blob/main/calendar.jpg?raw=true)
+![Proposal page appearance](https://github.com/MakennaAllred/startup/blob/main/proposal.jpg?raw=true)
 # Key features
   - secure login
   - ability to accept or reject calendar invites
