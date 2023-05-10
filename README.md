@@ -12,7 +12,7 @@ Sometimes planning events with friends can be hard. My application is going to b
   - ability to list available times 
  
  # Technologies
-  1. **HTML**: I will use correct HTML to have 5 structured pages. I will have a login page, a calendar display that can alternate between monthly and weekly view, I'll have a notifications page for events that need to be confirmed that also displays a confirmation or denial of the users proposals, a page to add new friends, and I'll have a page where users can create and propose new events.
+  1. **HTML**: I will use correct HTML to have 4 structured pages. I will have a login page, a page with a calendar display that can alternate between monthly and weekly view, I'll have a notifications page for events that need to be confirmed that also displays a confirmation or denial of the users proposals with space to add new friends, and I'll have a page where users can create and propose new events.
   2. **CSS**: I'll use CSS to style the application so it looks aesthetically pleasing by using color themes to make the application look clean and cohesive, as well as display things in a calendar format. 
   3. **JavaScript**: I'll use JS for login authentication, approving or denying requests, and displaying notifications of proposed or accepted events.
   4. **Service**: I'll use service for login, retrieving approval or denial notifications, submitting approval/denial.
