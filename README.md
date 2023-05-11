@@ -25,3 +25,13 @@ Sometimes planning events with friends can be hard. My application is going to b
   6. **Login**: Users will need to log in to propse/confirm events and add new friends. They can look up new friends by name or phone number (both will be required upon creating an account). Credentials will be stored securely in database
   7. **WebSocket**- As events are proposed and accepted notifcations will be broadcast to friends involved in the event
   8. **React**: I'll port the application to use React web framework as well! (I'm still learning what this means, but based off the startup example, I think I'll do something very similar to that)
+
+
+# HTML Deliverables
+1. I created the four outlined pages that I stated in my pitch. Those pages are login, notifications, propose an event, and calendar.
+2. At the top of each page there are links to the other 3 pages so users can easily navigate between the different pages.
+3. The point of this application is a shared calendar invite where people can propose and reject events or even counter offer events. I think I made this clear by having the calendar page appear as it almost will when it's finished.
+4. I added an image of a calendar on the propose event page so I could meet the image requirement
+5. On my index.html page there is a login option where users will need to login to access their calendar or propose an event
+6. My database placeholder appears on the calendar page where events will show up on the specified days when accepted.
+7. my Websocket placeholder is on my notifications page under what's new and proposed events. This is where interaction between friends will happen.
