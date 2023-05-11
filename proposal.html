@@ -21,22 +21,16 @@
         <!--using main instead of body because it will be the main content of the webpage here-->
         <main>
             <form method="get" action="proposal.html"></form>
-                <li>
                     <label for="datetime"> DateTime: </label>
                     <input type="datetime-local" name="varDatetime" id="datetime" />
-                </li>
-                <li>
-                    <label for="time">Time: </label>
-                    <input type="time" name="varTime" id="time" />
-                </li>
-                <li>
-                    <label for="month">Month: </label>
-                    <input type="month" name="varMonth" id="month" />
-                </li>
-                <li>
-                    <label for="week">Week: </label>
-                <input type="week" name="varWeek" id="week" />
-                </li>
+                    <label for="invite friends"> Invite friends </label>
+                    <input type="search" id="search" name="Invite friends">
+                <legend> Frequency </legend>
+                <label for="one time"> One time </label>
+                <input type="checkbox" id="one time" name="onetimecheckbox" value="one time" checked />
+                <label for="repeat"> Recurring event</label>
+                <input type="checkbox" id="recurring event" name="recurringeventcheckbox" value="recurring event">
+                <button type="submit">Propose Event</button>
         </main>
         <hr>
         <footer>
