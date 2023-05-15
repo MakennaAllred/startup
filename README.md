@@ -35,3 +35,4 @@ Sometimes planning events with friends can be hard. My application is going to b
 5. On my index.html page there is a login option where users will need to login to access their calendar or propose an event
 6. My database placeholder appears on the calendar page where events will show up on the specified days when accepted.
 7. my Websocket placeholder is on my notifications page under what's new and proposed events. This is where interaction between friends will happen.
+8. I will also access a third party data point by having holiday dates display in my calendar.
