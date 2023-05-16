@@ -20,7 +20,7 @@ menu{
     flex-direction: row;
     flex: 0 10em;
     justify-content: start;
-    align-items: start;
+    align-items: center;
     border-bottom:rgb(14, 124, 69);
 }
 
@@ -35,8 +35,6 @@ main{
     display: flex;
     flex-direction: column;
 
+
 }
 
-form{
-    background-color: black;
-}
