@@ -18,7 +18,7 @@ h1{
 }
 
 nav{
-    padding: 5%;
+    padding: 0.2%;
 }
 menu{
     display: flex;
@@ -26,7 +26,6 @@ menu{
     flex: 0 10em;
     justify-content: center;
     align-items: center;
-    border-bottom:rgb(14, 124, 69);
     list-style-type: none;
     border-radius: 0.25rem;    
 }
@@ -71,3 +70,9 @@ table td{
     border: thin rgb(14, 124, 69) solid;
 }
 
+.footer{
+padding:0.3%;
+align-items: start;
+display: relative;
+
+}
