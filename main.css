@@ -44,6 +44,10 @@ legend{
 justify-content: center;
 }
 
+h3{
+    border-bottom: thin solid rgb(14, 124, 69);
+}
+
 
 main{
     align-items: center;
