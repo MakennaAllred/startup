@@ -40,8 +40,9 @@ Sometimes planning events with friends can be hard. My application is going to b
 
 # CSS Deliverables
 1. This was so difficult, but I'm so proud of how it turned out! I changed the color to a color palette I think is visually appealing.
-2. I used multiple bootstrap elements including the buttons and the columns on the notifications page
-3. Right now I have placeholders for user's name that will populate on the top of the calendar once a person signs in. I also will access a third party site so holidays will show up on my calendar.
-4. I tried to implement flexing so my pages would be responsive to fitting all formats
-5. I also tried to implement spacing between elements by adjusting the respective padding or margins so things fit nicely on the page. 
-6. I'm super excited about continuing to refine my work.
+2. I used multiple bootstrap elements including the navigation buttons on every page and the columns on the notifications page
+3. I also included a font from Google!
+4. Right now I have placeholders for user's name that will populate on the top of the calendar once a person signs in. I also will access a third party site so holidays will show up on my calendar.
+5. I tried to implement flexing so my pages would be responsive to fitting all formats
+6. I also tried to implement spacing between elements by adjusting the respective padding or margins so things fit nicely on the page. 
+7. I'm super excited continually refine my work.
