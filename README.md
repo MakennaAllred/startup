@@ -44,5 +44,5 @@ Sometimes planning events with friends can be hard. My application is going to b
 3. I also included a font from Google!
 4. Right now I have placeholders for user's name that will populate on the top of the calendar once a person signs in. I also will access a third party site so holidays will show up on my calendar.
 5. I tried to implement flexing so my pages would be responsive to fitting all formats
-6. I also tried to implement spacing between elements by adjusting the respective padding or margins so things fit nicely on the page. 
+6. I also tried to implement spacing between elements by adjusting the respective padding or margins so things fit nicely on the page. However, I struggled to adjust the spacing in between similar elements, like on the propose event page. I also want to adjust the frequency section so the checkboxes are side by side, but I couldn't figure out how to do that. I will continue to study it until I figure it out.
 7. I'm super excited continually refine my work.
