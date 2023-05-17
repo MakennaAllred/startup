@@ -36,3 +36,12 @@ Sometimes planning events with friends can be hard. My application is going to b
 6. My database placeholder appears on the calendar page where events will show up on the specified days when accepted.
 7. my Websocket placeholder is on my notifications page under what's new and proposed events. This is where interaction between friends will happen.
 8. I will also access a third party data point by having holiday dates display in my calendar.
+
+
+# CSS Deliverables
+1. This was so difficult, but I'm so proud of how it turned out! I changed the color to a color palette I think is visually appealing.
+2. I used multiple bootstrap elements including the buttons and the columns on the notifications page
+3. Right now I have placeholders for user's name that will populate on the top of the calendar once a person signs in. I also will access a third party site so holidays will show up on my calendar.
+4. I tried to implement flexing so my pages would be responsive to fitting all formats
+5. I also tried to implement spacing between elements by adjusting the respective padding or margins so things fit nicely on the page. 
+6. I'm super excited about continuing to refine my work.
