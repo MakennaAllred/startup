@@ -39,6 +39,7 @@ h2{
     display: flex;
     align-items: center;
     color:rgb(14, 124, 69);
+    padding: 3%;
 }
 legend{
 justify-content: center;
