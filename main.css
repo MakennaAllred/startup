@@ -7,7 +7,7 @@
 header {
  display: flex;
  flex-direction: column;
- padding: 0.5%;
+ padding: 5%;
  box-sizing: border-box;
  text-align: center;
  
@@ -16,14 +16,19 @@ header {
 h1{
     border-bottom:thin solid rgb(14, 124, 69);
 }
+
+nav{
+    padding: 5%;
+}
 menu{
     display: flex;
     flex-direction: row;
     flex: 0 10em;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     border-bottom:rgb(14, 124, 69);
-    list-style-type: none;    
+    list-style-type: none;
+    border-radius: 0.25rem;    
 }
 
 body{
@@ -36,6 +41,10 @@ h2{
     align-items: center;
     color:rgb(14, 124, 69);
 }
+legend{
+justify-content: center;
+}
+
 
 main{
     align-items: center;
