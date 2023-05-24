@@ -1,4 +1,4 @@
 function addEvent(){
-//pop up window saying you added event
 //have it show up under my events on events page
+window.alert("New Event Added!")
 window.location.href = 'notifications.html';}
