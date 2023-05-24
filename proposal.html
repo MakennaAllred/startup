@@ -15,13 +15,13 @@
     <!--This is the header that will appear at the top of the page-->
     <body>
         <header>
-            <h1>Propose a new event</h1>
+            <h1>New event</h1>
             <!--this is for the buttons at the top of the page to navigate through app-->
             <nav>
-                    <a class="btn btn-primary" href="index.html" role="button"> Home</a>
-                    <a class="btn btn-primary" href="notifications.html" role="button"> Notifications</a>
-                    <a class="btn btn-primary" href="calendar.html" role="button"> Calendar</a>
-                    <a class="btn btn-primary"href="proposal.html" role="button"> Propose new event</a>
+                <a class="btn btn-primary" href="index.html" role="button"> Home</a>
+                <a class="btn btn-primary" href="notifications.html" role="button"> Events</a>
+                <!-- <a class="btn btn-primary" href="calendar.html" role="button"> Calendar</a> -->
+                <a class="btn btn-primary"href="proposal.html" role="button"> Add New Event</a>
             </nav>
         </header>
         <!--using main instead of body because it will be the main content of the webpage here-->
@@ -32,15 +32,15 @@
             <input type="text" id="text" name="title">
                     <label for="datetime"> DateTime: </label>
                     <input type="datetime-local" name="varDatetime" id="datetime" />
-                    <label for="invite friends"> Invite friends </label>
+                   <!-- <label for="invite friends"> Invite friends </label>
                     <input type="search" id="search" name="Invite friends">
                     <button type="submit">Add</button>
                 <label> Frequency </label>
                 <label for="one time"> One time </label>
                 <input type="checkbox" id="one time" name="onetimecheckbox" value="one time" checked />
-                <label for="repeat"> Recurring event</label>
-                <input type="checkbox" id="recurring event" name="recurringeventcheckbox" value="recurring event">
-                <button type="submit">Propose Event</button>
+                <label for="repeat"> Recurring event</label> 
+                <input type="checkbox" id="recurring event" name="recurringeventcheckbox" value="recurring event"> -->
+                <button id="addbtn" type="button" class="btn btn-outline-light" type="submit">Add Event</button>
         </main>
         <footer>
             <a href="https://github.com/MakennaAllred/startup">Makenna Allred's Github</a>

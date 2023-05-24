@@ -22,9 +22,9 @@
         <!--this is for the buttons at the top of the page to navigate through app-->
         <nav>
             <a class="btn btn-primary" href="index.html" role="button"> Home</a>
-            <a class="btn btn-primary" href="notifications.html" role="button"> Notifications</a>
-            <a class="btn btn-primary" href="calendar.html" role="button"> Calendar</a>
-            <a class="btn btn-primary"href="proposal.html" role="button"> Propose new event</a>
+            <a class="btn btn-primary" href="notifications.html" role="button"> Events</a>
+            <!-- <a class="btn btn-primary" href="calendar.html" role="button"> Calendar</a> -->
+            <a class="btn btn-primary"href="proposal.html" role="button"> Add New Event</a>
         </nav>
     </header>
     <!--using main instead of body because it will be the main content of the webpage here-->
@@ -36,7 +36,7 @@
         <form method="get" action ="notifications.html"></form>
         <label for="Password">Password</label>
         <input type="password" id="Password" placeholder="password">
-        <button type="submit" id="Login" onclick="login()">Login</button>
+        <button id="login" type="button" class="btn btn-outline-light" id="Login" onclick="login()">Login</button>
     </main>
     <footer>
         <a class='footer' href="https://github.com/MakennaAllred/startup">Makenna Allred's Github</a>
