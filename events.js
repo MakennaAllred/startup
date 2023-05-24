@@ -14,20 +14,13 @@ const events = [
     {name:"Chandler", title:"pick up Cricket from park"}
 ]
 
-let currentData = users;
-
-function table(data){
-    if(!!data && data.length >1) {
-        currentData = data;
-        const headers = parseHeader(data);
-        const tableElement = generateTable(headers, data);
-        const output = document.getElementById("output");
-        removeAllChildNodes(output);
-        output.appendChild(tableElement);}
-        else{
-            outputData("invalid input", data)
-        }
+addEventListener("load", (event) => {function buildAccordianList(data) {
+    let root = document.getElementById('root')
+    for (i =0, i < users.length; i++;){
+        let el = document.createElement('div')
+        el.innerText = users[i];
+        root.appendChild(el)
     }
 
-
+}});
 
