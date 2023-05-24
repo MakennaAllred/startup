@@ -14,7 +14,7 @@ const events = [
     {name:"Chandler", title:"pick up Cricket from park"}
 ]
 
-addEventListener("load", (event) => {function buildAccordianList(data) {
+addEventListener("load", (event) => {function buildAccordionList(data) {
     let root = document.getElementById('root')
     for (i =0, i < users.length; i++;){
         let el = document.createElement('div')
