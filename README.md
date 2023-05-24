@@ -46,3 +46,9 @@ Sometimes planning events with friends can be hard. My application is going to b
 5. I tried to implement flexing so my pages would be responsive to fitting all formats
 6. I also tried to implement spacing between elements by adjusting the respective padding or margins so things fit nicely on the page. However, I struggled to adjust the spacing in between similar elements, like on the propose event page. I also want to adjust the frequency section so the checkboxes are side by side, but I couldn't figure out how to do that. I will continue to study it until I figure it out.
 7. I'm super excited continually refine my work.
+
+# Changes
+After talking with Professor Jensen I'm going to shift the idea of my web application to make it a little more feasible. Here are the changes I'm making:
+  1. I'm dropping the calendar page. I'm focusing on the functionality of the other pages, and will come back to it if time permits/if it proves to be necessary.
+  2. The app will now function as a calendar sharing platform where you can see the events of others
+  3. The notifications page will become an event page where you will see your events, the events of a selected user, and the latest events scheduled
