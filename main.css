@@ -102,10 +102,10 @@ margin: 2%;;
 .accordion-item {
     display: inline-block;
     margin-right: 10px;
+    width: 100%;
   }
   
   .accordion-button {
-    width: 100%;
     text-align: left;
     align-items: left;
     justify-content: left;
