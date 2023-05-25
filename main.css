@@ -85,10 +85,23 @@ display: relative;
 margin: 2%;;
 }
 
+.row{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.col{
+    flex: 1;
+}
+
+#root{
+    margin-top: 1.5rem;
+}
+
 .accordion-item {
-    margin-bottom: 10px;
-    align-items: left;
-    justify-content: left;
+    display: inline-block;
+    margin-right: 10px;
   }
   
   .accordion-button {
@@ -100,7 +113,7 @@ margin: 2%;;
   
   .accordion-body {
     padding: 10px;
-    background-color: #f8f9fa;
+    background-color: white
   }
   
   .list-group-item {
