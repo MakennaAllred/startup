@@ -101,7 +101,6 @@ margin: 2%;;
 
 .accordion-item {
     display: inline-block;
-    margin-right: 10px;
     width: 100%;
   }
   
@@ -113,11 +112,16 @@ margin: 2%;;
   
   .accordion-body {
     padding: 10px;
-    background-color: white
+    background-color: rgb(147, 197, 255);
   }
   
   .list-group-item {
     border: none;
     padding: 0.5rem 0;
+    background-color: white;
   }
   
+  p {
+    background-color:rgb(147, 197, 255);
+
+  }

@@ -62,7 +62,8 @@ addEventListener("load", (event) => {
     const users = [
       { name: "Genny" },
       { name: "Chandler" },
-      { name: "Holly" }
+      { name: "Holly" },
+      { name: "James" }
     ];
   
     const events = [
@@ -76,3 +77,8 @@ addEventListener("load", (event) => {
     buildAccordionList(users, events);
   });
   
+
+  function myEvents(){
+    const myname = localStorage.getItem("userName");
+    
+  }
