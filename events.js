@@ -80,8 +80,8 @@ addEventListener("load", (event) => {
 
   function setObject(){
     let myname = localStorage.getItem("userName");
-    let event = document.querySelector('title');
-    let time = document.querySelector("datetime")
+    let event = document.querySelector('#title');
+    let time = document.querySelector("#datetime")
     let object = {
         name: myname,
         events: [
@@ -92,7 +92,23 @@ addEventListener("load", (event) => {
         ]
     }
     localStorage.setItem('myname', JSON.stringify(object))
+  }
 
+  function getObject() {
+    let object = JSON.parse(localStorage.getItem('myname'))
+    object.events.push(data)
+    localStorage.setItem('myname', JSON.stringify(object))
+  }
+
+  function displayEvents() {
+    let object = JSON.parse(localStorage.getItem('myname'))
+    let root = document.getElementById("myevents")
+    for (i = 0; i < object.events.length; i ++) {
+        let kitten = document.createElement("li");
+        let kitten.innerText = `${object.events[i].eventname} is happening at ${object.events[i].eventtime}`;
+        root.appendChild(kitten);
+
+    }
   }
 
 
