@@ -75,13 +75,14 @@ addEventListener("load", (event) => {
     ];
   
     buildAccordionList(users, events);
+    displayEvents();
   });
   
 
   function setObject(){
     let myname = localStorage.getItem("userName");
-    let event = document.querySelector('#title');
-    let time = document.querySelector("#datetime")
+    let event = document.querySelector('#title').value;
+    let time = document.querySelector("#datetime").value
     let object = {
         name: myname,
         events: [
@@ -90,8 +91,9 @@ addEventListener("load", (event) => {
                 eventtime: time
             }
         ]
-    }
+    };
     localStorage.setItem('myname', JSON.stringify(object))
+    console.log(JSON.parse(localStorage.getItem("myname")));
   }
 
   function getObject() {
@@ -100,15 +102,22 @@ addEventListener("load", (event) => {
     localStorage.setItem('myname', JSON.stringify(object))
   }
 
-  function displayEvents() {
-    let object = JSON.parse(localStorage.getItem('myname'))
-    let root = document.getElementById("myevents")
-    for (i = 0; i < object.events.length; i ++) {
-        let kitten = document.createElement("li");
-        let kitten.innerText = `${object.events[i].eventname} is happening at ${object.events[i].eventtime}`;
-        root.appendChild(kitten);
+  
 
+
+  function displayEvents() {
+    let object = JSON.parse(localStorage.getItem('myname'));
+    let root = document.getElementById("myevents");
+    let elements = []
+    let block = document.createElement('div');
+    block.classList.add('block');
+    let el = document.createElement('li')
+    for (i = 0; i < object.events.length; i ++) { 
+        el.innerText = `${object.events[i].eventname} is happening at ${object.events[i].eventtime}`;
+        root.appendChild(el);
+        elements.push(el);
     }
+    return elements;
   }
 
 
