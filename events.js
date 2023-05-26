@@ -103,8 +103,6 @@ addEventListener("load", (event) => {
   }
 
   
-
-
   function displayEvents() {
     let object = JSON.parse(localStorage.getItem('myname'));
     let root = document.getElementById("myevents");
@@ -120,4 +118,24 @@ addEventListener("load", (event) => {
     return elements;
   }
 
+  const users = [
+    "Genny" , "Chandler", "Holly", "James"
+  ];
 
+  const events = [
+  "dinner", "work meeting", "date night", "study session"
+  ];
+
+function generateEvent() {
+    const randomUser = users[Math.floor(Math.random()* users.length)];
+    const randomEvent = events[Math.floor(Math.random()* events.length)];
+    const eventList = document.getElementById('eventList');
+    const listItem = document.createElement('li');
+    listItem.textContent = `${randomUser} scheduled ${randomEvent}`;
+    eventList.insertBefore(listItem, eventList.firstChild); // Insert the new event at the beginning of the list
+
+    if (eventList.children.length > 6) {
+        eventList.lastChild.remove(); // Remove the oldest event if the list exceeds 10 events
+    }
+    } 
+    setInterval(generateEvent, 7000);
