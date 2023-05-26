@@ -78,7 +78,21 @@ addEventListener("load", (event) => {
   });
   
 
-  function myEvents(){
-    const myname = localStorage.getItem("userName");
-    
+  function setObject(){
+    let myname = localStorage.getItem("userName");
+    let event = document.querySelector('title');
+    let time = document.querySelector("datetime")
+    let object = {
+        name: myname,
+        events: [
+            {
+                eventname: event,
+                eventtime: time
+            }
+        ]
+    }
+    localStorage.setItem('myname', JSON.stringify(object))
+
   }
+
+
