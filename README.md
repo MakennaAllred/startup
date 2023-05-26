@@ -52,3 +52,12 @@ After talking with Professor Jensen I'm going to shift the idea of my web applic
   1. I'm dropping the calendar page. I'm focusing on the functionality of the other pages, and will come back to it if time permits/if it proves to be necessary.
   2. The app will now function as a calendar sharing platform where you can see the events of others
   3. The notifications page will become an event page where you will see your events, the events of a selected user, and the latest events scheduled
+
+# Java Deliverables
+1. On my home page (index.html) I have a corresponding login.js file that saves the username to local storage where it is accessed in other functions later on
+2. After pressing the log in button I implemented a window change that takes users to the events page. 
+3. The events page is what I'm most proud of. It features three update columns: users, my events and latest events.
+  - The users column I arguably spent way too much time on and created an accordion drop down feature where you can click on a user and it will populate a list of the events that user has scheduled. If that user doesn't have any events, when clicked the list will say no events scheduled or something like that. This is a dynamic feature so as users are added to the array right now, a new accordion tab will populate with their lists. It took forever but I think it's so cool!
+  - my events is the middle column that populates after a user schedules an event on the add new event tab. Right now, it will only display one event at a time, but in the future I want to implement changes that show the most recent 6 events scheduled by the user. I also might edit the way the date and time stamp appears.
+  - lastly I have the latest event column. It populates from an array of users and another array of events. I have a set interval function that adds a new event every 7 seconds but it only displays the most recent 6 events. 
+4. Overall, this was a difficult assignment, but I'm super proud of what I was able to accomplish and I look forward to being able to refine my work even further!
