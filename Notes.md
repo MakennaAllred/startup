@@ -291,4 +291,19 @@ You can provide a CSS selector to the querySelectorAll function in order to sele
 | 194  | Internet Relay Chat (IRC) for chatting                                                             |
 | 443  | HTTP Secure (HTTPS) for secure web requests                                                        |
 
-Caddy is listening on ports 80 and 443. 
+Caddy is listening on ports 80 and 443. When it gets a 443 request it examines path and if it matches a static file it reads the file off disk and returns it. If the path matches one of the definitions for a gateway service, Caddy makes a connection on that service's port and passes request to the service. 
+
+## *HTTP*
+When a web browser and server talk they exchange HTTP requests and responses. You can see this in the browser debugger or you can use a console tool like `curl`
+
+An HTTP request has this general syntax.
+
+```yaml
+<verb> <url path, parameters, anchor> <version>
+[<header key: value>]*
+[
+
+  <body>
+]
+```
+The first line of the HTTP request contains the `verb` of the request, followed by the path, parameters, and anchor of the URL, and finally the version of HTTP being used. The following lines are optional headers that are defined by key value pairs. After the headers you have an optional body. The body start is delimited from the headers with two new lines.
