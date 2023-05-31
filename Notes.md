@@ -307,3 +307,122 @@ An HTTP request has this general syntax.
 ]
 ```
 The first line of the HTTP request contains the `verb` of the request, followed by the path, parameters, and anchor of the URL, and finally the version of HTTP being used. The following lines are optional headers that are defined by key value pairs. After the headers you have an optional body. The body start is delimited from the headers with two new lines.
+
+## *Verbs*
+
+There are several verbs that describe what the HTTP request is asking for. The list below only describes the most common ones.
+
+| Verb    | Meaning                                                                                                                                                                                                                                                  |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GET     | Get the requested resource. This can represent a request to get a single resource or a resource representing a list of resources.                                                                                                                        |
+| POST    | Create a new resource. The body of the request contains the resource. The response should include a unique ID of the newly created resource.                                                                                                             |
+| PUT     | Update a resource. Either the URL path, HTTP header, or body must contain the unique ID of the resource being updated. The body of the request should contain the updated resource. The body of the response may contain the resulting updated resource. |
+| DELETE  | Delete a resource. Either the URL path or HTTP header must contain the unique ID of the resource to delete.                                                                                                                                              |
+| OPTIONS | Get metadata about a resource. Usually only HTTP headers are returned. The resource itself is not returned.                                                                                                                                              |
+
+## Status codes
+
+It is important that you use the standard HTTP status codes in your HTTP responses so that the client of a request can know how to interpret the response. The codes are partitioned into five blocks.
+
+- 1xx - Informational.
+- 2xx - Success.
+- 3xx - Redirect to some other location, or that the previously cached resource is still valid.
+- 4xx - Client errors. The request is invalid.
+- 5xx - Server errors. The request cannot be satisfied due to an error on the server.
+
+Within those ranges here are some of the more common codes. See the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) for a full description of status codes.
+
+| Code | Text                                                                                 | Meaning                                                                                                                           |
+| ---- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| 100  | Continue                                                                             | The service is working on the request                                                                                             |
+| 200  | Success                                                                              | The requested resource was found and returned as appropriate.                                                                     |
+| 201  | Created                                                                              | The request was successful and a new resource was created.                                                                        |
+| 204  | No Content                                                                           | The request was successful but no resource is returned.                                                                           |
+| 304  | Not Modified                                                                         | The cached version of the resource is still valid.                                                                                |
+| 307  | Permanent redirect                                                                   | The resource is no longer at the requested location. The new location is specified in the response location header.               |
+| 308  | Temporary redirect                                                                   | The resource is temporarily located at a different location. The temporary location is specified in the response location header. |
+| 400  | Bad request                                                                          | The request was malformed or invalid.                                                                                             |
+| 401  | Unauthorized                                                                         | The request did not provide a valid authentication token.                                                                         |
+| 403  | Forbidden                                                                            | The provided authentication token is not authorized for the resource.                                                             |
+| 404  | Not found                                                                            | An unknown resource was requested.                                                                                                |
+| 408  | Request timeout                                                                      | The request takes too long.                                                                                                       |
+| 409  | Conflict                                                                             | The provided resource represents an out of date version of the resource.                                                          |
+| 418  | [I'm a teapot](https://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol) | The service refuses to brew coffee in a teapot.                                                                                   |
+| 429  | Too many requests                                                                    | The client is making too many requests in too short of a time period.                                                             |
+| 500  | Internal server error                                                                | The server failed to properly process the request.                                                                                |
+| 503  | Service unavailable                                                                  | The server is temporarily down. The client should try again with an exponential back off.                                         |
+
+## *Headers* 
+
+![image](https://github.com/MakennaAllred/startup/assets/132696940/e620711b-a1a2-471d-b966-800b4610ed7a)
+
+
+## *Cookies* 
+HTTP requests are stateless, but we use cookies to track state across requests. Cookeis are generated by a server and passed to a client via HTTP request. Client caches the cookie and returns it as a HTTP header back to the server on subsequent requests
+
+
+
+# SOP and CORS
+SOP: Same origin policy- only allows JavaScript requests from the same domain as the origin
+CORS: Cross origin Resource Sharing- allows the client (the browser) to specify the origin of request and then let the server respond with what origins are allowed
+
+*Notice that with CORS, it is the browser that is protecting the user from accessing the course website's authentication endpoint from the wrong origin. CORS is only meant to alert the user that something nefarious is being attempted. A hacker can still proxy requests through their own server to the course website and completely ignore the Access-Control-Allow-Origin header. Therefore the course website needs to implement its own precautions to stop a hacker from using its services inappropriately.*
+
+The allowed domain names will appear in the `Access-Control-Allow-Origin` header
+
+# Fetch
+Fetch takes a URL and returns a promise. The promise then function takes a callback function that is asynchronously called when the requested URL content is obtained. If the returned content is of type application/json you can use the json function on the response object to convert it to a JavaScript object.
+
+
+# Endpoints
+
+1. Grammatical- with HTTP everything is a resource (noun). You act on the resource with an HTTP verb. 
+2. Readable- the resource you are referencing with an HTTP request should be clearly readable in the URL path. (should make sense to humans)
+3. Discoverable- as you expose resources that contain other resources you can provide the endpoitns for the aggregated resources. THis makes it so someone suing your endpoints only needs to remember the top level endpoint and then they can discover everything else. 
+4. Compatible- build endpoints so you can add new functionality without breaking existing clients
+5. Simple- keep endpoints focused on primary resources of your application
+6. Documented- open API specification is a good tool to create, use, and maintain documentation of your service endpoints. Allows you to provied client libraries for your endpoints and a sandboz for experimentation.
+
+## RPC
+Remote Procedure Calls (RPC) expose service endpoints as simple function calls. When RPC is used over HTTP it usually just leverages the POST HTTP verb. The actual verb and subject of the function call is represented by the function name. For example, `deleteOrder` or `updateOrder`. The name of the function is either the entire path of the URL or a parameter in the POST body.
+
+![image](https://github.com/MakennaAllred/startup/assets/132696940/2ddd57ed-ce1e-4be5-9f9e-7bdf3a1eeffd)
+
+## REST
+
+![image](https://github.com/MakennaAllred/startup/assets/132696940/0f5bb0a6-b58d-4234-82f8-00ef4266bccf)
+
+
+## GRAPHQL 
+
+![image](https://github.com/MakennaAllred/startup/assets/132696940/225f921c-1127-45bf-90cb-a17c5f051af9)
+
+# Node.js
+node -e to execute
+node in interpretive mode by executing it without any parameters and then typing JS code directly into the interpreter
+
+![image](https://github.com/MakennaAllred/startup/assets/132696940/568b73a7-697e-41fd-b868-70328be47847)
+
+1. Create your project directory
+2. Initialize it for use with NPM by running `npm init -y`
+3. Make sure `.gitignore` file contains `node-modules`
+4. Install any desired packages with `npm install <package name here>`
+5. Add `require('<package name here>')` to your application's JavaScript
+6. Use the code the package provides in your JavaScript
+7. Run your code with `node index.js`
+
+# Express
+1. provides support for routing requests for service and endpoints
+2. provides support for manipulating HTTP requests with JSON body content
+3. provides support for generating HTTP responses 
+4. provides support for using `middleware` to add functionality
+
+Create an Express application by using NPM to install the Express package and then call the `express` constructor to create the Express application and listen for HTTP requests on a desired port
+      - npm install express
+```js
+const express = require('express');
+const app = express();
+
+app.listen(8080);
+```
+With the `app` object you can now add HTTP routing and middleware functions to the application
