@@ -426,3 +426,29 @@ const app = express();
 app.listen(8080);
 ```
 With the `app` object you can now add HTTP routing and middleware functions to the application
+
+![image](https://github.com/MakennaAllred/startup/assets/132696940/1995ed81-163d-4c67-9cf2-b9bdbc6f5f5d)
+
+
+```js
+app.get('/store/:storeName', (req, res, next) => {
+  res.send({name: req.params.storeName});
+});
+```
+
+// Wildcard - matches /store/x and /star/y
+app.put('/st*/:storeName', (req, res) => res.send({update: req.params.storeName}));
+
+// Pure regular expression
+app.delete(/\/store\/(.+)/, (req, res) => res.send({delete: req.params[0]}));
+
+Notice that in these examples the next parameter was omitted. Since we are not calling next we do not need to include it as a parameter. However, if you do not call next then no following middleware functions will be invoked for the request.
+
+## *Using Middleware*
+Routing functions are only called if the associated pattern matches while middleware functions are always called for every HTTP request unless a preceding middlware function doesn't call next.
+
+The middleware function parameters represent the HTTP request object (req), the HTTP response object (res), and the next middleware function to pass processing to. You should usually call the next function after completing processing so that the next middleware function can execute.
+
+![image](https://github.com/MakennaAllred/startup/assets/132696940/f34aa483-6e84-472f-88c9-f8dc6755446e)
+
+
