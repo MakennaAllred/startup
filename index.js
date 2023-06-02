@@ -26,4 +26,13 @@ apirouter.get('/events', (req, res) => {
 })
 
 //adding an event
-apirouter.post('/events/add', (req, res) =>)
+apirouter.post('/events/add', (req, res) => {
+    const event = event.body;
+    myevents.push(event);
+    res.json({ message: 'Event added successfully!'})})
+
+//updating the latest event list
+apirouter.get('/events/latest', (req,res) =>{
+    const latest = myevents[myevents.length -1];
+    res.json(latest);
+})
