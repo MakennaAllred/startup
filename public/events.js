@@ -97,12 +97,13 @@ addEventListener("load", (event) => {
   }
 
   document.addEventListener('DOMContentLoaded', getObject);
+  
   function getObject() {
       fetch('/api/events/latest')
         .then((response) => response.json())
         .then((data) => {
-          // Use the retrieved data to update your client-side UI as needed
-          console.log(data);
+          const events = [data];
+          displayEvents(events);
         })
         .catch((error) => {
           console.error('Error:', error);
@@ -121,28 +122,24 @@ addEventListener("load", (event) => {
       myevents = data;
       myevents.sort((a, b) => new Date(b.date) - new Date(a.date));
       const recentHolidays = myevents.slice(0, 3);
-      displayEvents();
+      displayEvents(recentHolidays);
     })
     .catch((error) => {
       console.error('Error:' , error)
     });
   }
   
-  function displayEvents() {
+  function displayEvents(events) {
     let object = JSON.parse(localStorage.getItem('myname'));
     let root = document.getElementById("myevents");
     root.innerHTML = ""
-    let elements = []
-    let block = document.createElement('div');
-    block.classList.add('block');
-    let el = document.createElement('li')
-    for (i = 0; i < object.events.length; i ++) { 
-        el.innerText = `${object.events[i].eventname} is happening at ${object.events[i].eventtime}`;
-        root.appendChild(el);
-        elements.push(el);
-    }
-    return elements;
+    object.events.forEach((event) => {
+      let el = document.createElement('li');
+      el.innerText = `${event.eventname} is happening at ${event.eventtime}`;
+      root.appendChild(el);
+    });
   }
+  
 
   const users = [
     "Genny" , "Chandler", "Holly", "James"

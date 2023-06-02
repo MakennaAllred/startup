@@ -27,7 +27,8 @@ apirouter.get('/events', (req, res) => {
 
 //adding an event
 apirouter.post('/events/add', (req, res) => {
-    const event = event.body;
+    const {eventname, eventtime} = req.body;
+    const event = {eventname: eventname, eventtime:eventtime};
     myevents.push(event);
     res.json({ message: 'Event added successfully!'})})
 
