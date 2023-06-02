@@ -96,11 +96,19 @@ addEventListener("load", (event) => {
     console.log(JSON.parse(localStorage.getItem("myname")));
   }
 
+  document.addEventListener('DOMContentLoaded', getObject);
   function getObject() {
-    let object = JSON.parse(localStorage.getItem('myname'))
-    object.events.push(data)
-    localStorage.setItem('myname', JSON.stringify(object))
-  }
+      fetch('/api/events/latest')
+        .then((response) => response.json())
+        .then((data) => {
+          // Use the retrieved data to update your client-side UI as needed
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+    
 
   document.addEventListener('DOMContentLoaded', fetchholidays);
 
@@ -123,6 +131,7 @@ addEventListener("load", (event) => {
   function displayEvents() {
     let object = JSON.parse(localStorage.getItem('myname'));
     let root = document.getElementById("myevents");
+    root.innerHTML = ""
     let elements = []
     let block = document.createElement('div');
     block.classList.add('block');
