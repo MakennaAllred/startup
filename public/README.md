@@ -61,3 +61,11 @@ After talking with Professor Jensen I'm going to shift the idea of my web applic
   - my events is the middle column that populates after a user schedules an event on the add new event tab. Right now, it will only display one event at a time, but in the future I want to implement changes that show the most recent 6 events scheduled by the user. I also might edit the way the date and time stamp appears.
   - lastly I have the latest event column. It populates from an array of users and another array of events. I have a set interval function that adds a new event every 7 seconds but it only displays the most recent 6 events. 
 4. Overall, this was a difficult assignment, but I'm super proud of what I was able to accomplish and I look forward to being able to refine my work even further!
+
+# Web Service
+1. In my index.js file I created an HTTP service using Node and express
+2. I moved all of my files into the public directory and served them up using express static middleware on index.js
+3. On Events.js I call a third party service that is supposed to populate the three most recent holidays under my events
+4. In index.js there are multiple service endpoints for adding an event and retrieving the latest event for example
+5. The functions like getObject, setObject, and displayObject call my service endpoints from the events.js file
+
