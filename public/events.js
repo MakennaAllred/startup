@@ -102,6 +102,23 @@ addEventListener("load", (event) => {
     localStorage.setItem('myname', JSON.stringify(object))
   }
 
+  document.addEventListener('DOMContentLoaded', fetchholidays);
+
+  myevents = []
+
+  function fetchholidays(){
+    fetch('https://date.nager.at/api/v3/PublicHolidays/2023/US')
+    .then((response) => response.json())
+    .then((data) => {
+      myevents = data;
+      myevents.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const recentHolidays = myevents.slice(0, 3);
+      displayEvents();
+    })
+    .catch((error) => {
+      console.error('Error:' , error)
+    });
+  }
   
   function displayEvents() {
     let object = JSON.parse(localStorage.getItem('myname'));
