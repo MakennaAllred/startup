@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const port = process.argv.length > 2 ? process.arv[2] : 4000;
+const port = 4000;
 
 //uses json
 app.use(express.json());
