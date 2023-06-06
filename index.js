@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const db = require('C:/Users/maken/startup/database.js');
 
 const port = 4000;
 
@@ -18,22 +19,23 @@ app.listen(port, () => {
     console.log(`listening on port ${port}`);
 })
 
-myevents = []
+
 
 //get my events
-apirouter.get('/events', (req, res) => {
-    res.send(myevents)
+apirouter.get('/events', async (req, res) => {
+    const events = await db.getEvents();
+    res.send(events)
 })
 
 //adding an event
-apirouter.post('/events/add', (req, res) => {
+apirouter.post('/events/add', async (req, res) => {
     const {eventname, eventtime} = req.body;
     const event = {eventname: eventname, eventtime:eventtime};
-    myevents.push(event);
+    await db.addEvent(event);
     res.json({ message: 'Event added successfully!'})})
 
 //updating the latest event list
-apirouter.get('/events/latest', (req,res) =>{
-    const latest = myevents[myevents.length -1];
+apirouter.get('/events/latest', async (req,res) =>{
+    const latest = await db.getLatestEvent();
     res.json(latest);
 })

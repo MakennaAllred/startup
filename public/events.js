@@ -99,7 +99,7 @@ addEventListener("load", (event) => {
   document.addEventListener('DOMContentLoaded', getObject);
   
   function getObject() {
-      fetch('/api/events/latest')
+      fetch('/api/events')
         .then((response) => response.json())
         .then((data) => {
           const events = [data];
@@ -113,7 +113,7 @@ addEventListener("load", (event) => {
 
   document.addEventListener('DOMContentLoaded', fetchholidays);
 
-  myevents = []
+ 
 
   function fetchholidays(){
     fetch('https://date.nager.at/api/v3/PublicHolidays/2023/US')
