@@ -1,10 +1,10 @@
 const {MongoClient} = require('mongodb');
-const config = require('C:/Users/maken/startup/dbConfig.json');
+const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.username}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
-const db = client.db('cs260')
-const eventcollection = db.collection('myevents')
+const db = client.db('cs260');
+const eventcollection = db.collection('myevents');
 
 (async function testConnection() {
     await client.connect();

@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const db = require('C:/Users/maken/startup/database.js');
+const db = require('./database.js');
 
 const port = 4000;
 
@@ -18,7 +18,6 @@ app.use(`/api`, apirouter);
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
 })
-
 
 
 //get my events

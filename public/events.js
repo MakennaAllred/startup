@@ -122,10 +122,20 @@ addEventListener("load", (event) => {
       myevents = data;
       myevents.sort((a, b) => new Date(b.date) - new Date(a.date));
       const recentHolidays = myevents.slice(0, 3);
-      displayEvents(recentHolidays);
+      displayHolidays(recentHolidays);
     })
     .catch((error) => {
       console.error('Error:' , error)
+    });
+  }
+
+  function displayHolidays(holidays){
+    let root = document.getElementById('myevents');
+    root.innerText = "";
+    holidays.forEach((holiday) => {
+      let el = document.createElement('li');
+      el.innerText = `${holiday.name} - ${holiday.date}`;
+      root.appendChild(el);
     });
   }
   
@@ -149,16 +159,16 @@ addEventListener("load", (event) => {
   "dinner", "work meeting", "date night", "study session"
   ];
 
-function generateEvent() {
-    const randomUser = users[Math.floor(Math.random()* users.length)];
-    const randomEvent = events[Math.floor(Math.random()* events.length)];
-    const eventList = document.getElementById('eventList');
-    const listItem = document.createElement('li');
-    listItem.textContent = `${randomUser} scheduled ${randomEvent}`;
-    eventList.insertBefore(listItem, eventList.firstChild); // Insert the new event at the beginning of the list
+// function generateEvent() {
+//     const randomUser = users[Math.floor(Math.random()* users.length)];
+//     const randomEvent = events[Math.floor(Math.random()* events.length)];
+//     const eventList = document.getElementById('eventList');
+//     const listItem = document.createElement('li');
+//     listItem.textContent = `${randomUser} scheduled ${randomEvent}`;
+//     eventList.insertBefore(listItem, eventList.firstChild); // Insert the new event at the beginning of the list
 
-    if (eventList.children.length > 6) {
-        eventList.lastChild.remove(); // Remove the oldest event if the list exceeds 10 events
-    }
-    } 
-    setInterval(generateEvent, 7000);
+//     if (eventList.children.length > 6) {
+//         eventList.lastChild.remove(); // Remove the oldest event if the list exceeds 10 events
+//     }
+//     } 
+//     setInterval(generateEvent, 7000);
