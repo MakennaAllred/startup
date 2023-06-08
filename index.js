@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const bcrpyt = require('bcrypt');
 const authcookie = 'token';
 
-const port = 4000;
+const port = 5000;
 
 //uses cookies for auth tokens
 app.use(cookieParser());
@@ -22,10 +22,8 @@ app.set('trust proxy', true);
 var apirouter = express.Router();
 app.use(`/api`, apirouter);
 
-//tells what port to use
-app.listen(port, () => {
-    console.log(`listening on port ${port}`);
-})
+
+
 
 
 //get my events
@@ -56,18 +54,19 @@ apirouter.post('/auth/create', async (req,res) => {
         const user = await db.createUser(req.body.email, req.body.password);
         setAuthCookie(res, user.token);
         res.send({
-            id: user.id,
+            id: user._id,
         });
     }
 });
 
 //gets token for a specific user
-apirouter.post('auth/login', async (req,res) => {
-    const user= await db.getUser(req.body.email);
+apirouter.post('/auth/login', async (req,res) => {
+    console.log('post');
+    const user = await db.getUser(req.body.email);
     if(user) {
         if (await bcrpyt.compare(req.body.password, user.password)) {
             setAuthCookie(res, user.token);
-            res.send({id: user.id});
+            res.send({id: user._id});
             return;
         }
     }
@@ -114,3 +113,7 @@ function setAuthCookie(res, authtoken){
     });
 }
 
+//tells what port to use
+app.listen(port, () => {
+    console.log(`listening on port ${port}`);
+})

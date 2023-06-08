@@ -2,7 +2,7 @@
 <html lang="en">
 <!--The head is for the browser tab and won't appear on the rendered page-->
 <head> 
-    <script src="login.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@100&display=swap" rel="stylesheet">
@@ -29,20 +29,20 @@
     </header>
     <!--using main instead of body because it will be the main content of the webpage here-->
     <main>
-        <h1 id ="logincontrols">Please Log in</h1>
-        <form method="get" action="notifications.html"></form>
+        <div id ="logincontrols">
+            <h1>Please Log in</h1>
         <label for="Name">Email</label> 
         <input type="text" id="name" placeholder="Your email here">
-        <form method="get" action ="notifications.html"></form>
         <label for="Password">Password</label>
         <input type="password" id="Password" placeholder="password">
         <button id="login" type="button" class="btn btn-outline-light" id="Login" onclick="loginUser()">Login</button>
         <button type="button" class="btn btn-outline-light" onclick="createUser()">Create</button>
+        </div>
 
         <div id ="loggedincontrols" style ="display:none">
             <div id="playeremail"></div>
             <button type="button" class="btn btn-primary" onclick="events()">Events</button>
-            <button type="button" class="btn btn-primary" onclick="logout()">Events</button>
+            <button type="button" class="btn btn-primary" onclick="logout()">Log out</button>
 
     </main>
     <footer>
@@ -54,4 +54,5 @@
     crossorigin="anonymous"
   ></script>
 </body>
+<script defer src="login.js"></script>
 </html>

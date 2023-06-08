@@ -22,6 +22,7 @@ async function createUser() {
 async function loginorCreate(endpoint){
   const username = document.querySelector('#name')?.value;
   const password = document.querySelector('#Password')?.value;
+  console.log(username, password,);
   const response = await fetch(endpoint, {
     method: 'POST',
     body: JSON.stringify({email: username, password:password}),
@@ -36,7 +37,7 @@ async function loginorCreate(endpoint){
   }
   else{
     const body = await response.json();
-    window.alert("Error");
+    window.alert(`Error: ${body}`);
   }
 }
 

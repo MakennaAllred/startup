@@ -23,7 +23,7 @@ function getUser(email){
 }
 
 function getUserbyToken(token){
-    return usercollection.findOne({toke: token});
+    return usercollection.findOne({token: token});
 }
 
 async function createUser(email, password){
