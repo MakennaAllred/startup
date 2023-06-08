@@ -1,12 +1,13 @@
 (async () => {
-  const username = localstorage.getItem('username');
+  const username = localStorage.getItem('userName');
   if (username) {
     document.querySelector('#name').textContent = username;
     setDisplay('logincontrols', 'none');
-    setDisplay('eventcontrols', 'block');
+    setDisplay('loggedincontrols', 'block');
   }
   else{
     setDisplay('logincontrols', 'block')
+    setDisplay('loggedincontrols', 'none')
   }
 })();
 
@@ -14,11 +15,15 @@ async function loginUser(){
   loginorCreate(`/api/auth/login`);
 }
 
+async function createUser() {
+  loginorCreate(`/api/auth/create`);
+}
+
 async function loginorCreate(endpoint){
   const username = document.querySelector('#name')?.value;
   const password = document.querySelector('#Password')?.value;
   const response = await fetch(endpoint, {
-    method: 'post',
+    method: 'POST',
     body: JSON.stringify({email: username, password:password}),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
@@ -38,7 +43,7 @@ async function loginorCreate(endpoint){
 function logout() {
   localStorage.removeItem('username');
   fetch(`/api/auth/logout`, {
-    method: 'delete',
+    method: 'DELETE',
   }).then(() => (window.location.href = '/'));
 }
 

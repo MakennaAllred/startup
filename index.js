@@ -48,6 +48,7 @@ apirouter.get('/events/latest', async (req,res) =>{
 })
 
 apirouter.post('/auth/create', async (req,res) => {
+    console.log(req.body);
     if (await db.getUser(req.body.email)) {
         res.status(409).send({msg: 'Already a user'});
     }
@@ -70,7 +71,7 @@ apirouter.post('auth/login', async (req,res) => {
             return;
         }
     }
-    res.status(401).send({msg: Unauthorized});
+    res.status(401).send({msg: "Unauthorized"});
 });
 
 //delete authentication token if stored in a cookie
@@ -101,7 +102,7 @@ secureapirouter.use(async (req, res, next) => {
         next()
     }
     else{
-        res.status(401).send({msg: Unauthorized});
+        res.status(401).send({msg: "Unauthorized"});
     }
 });
 
