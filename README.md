@@ -69,3 +69,7 @@ After talking with Professor Jensen I'm going to shift the idea of my web applic
 4. In index.js there are multiple service endpoints for adding an event and retrieving the latest event for example
 5. The functions like getObject, setObject, and displayObject call my service endpoints from the events.js file
 
+# MongoDB
+1. I created a working MongoDB account for my database and use that in my index.js and database.js files following the Simon format
+2. My endpoints are in my index.js file and I updated the functions so they are async and await and work with the server
+3. Everything should be in either the index.js or database.js file
