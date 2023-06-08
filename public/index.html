@@ -20,7 +20,7 @@
     <header>
         <h1>Cal Share</h1>
         <!--this is for the buttons at the top of the page to navigate through app-->
-        <nav>
+        <nav id="eventcontrols">
             <a class="btn btn-primary" href="index.html" role="button"> Home</a>
             <a class="btn btn-primary" href="events.html" role="button"> Events</a>
             <!-- <a class="btn btn-primary" href="calendar.html" role="button"> Calendar</a> -->
@@ -29,14 +29,20 @@
     </header>
     <!--using main instead of body because it will be the main content of the webpage here-->
     <main>
-        <h1>Please Log in</h1>
+        <h1 id ="logincontrols">Please Log in</h1>
         <form method="get" action="notifications.html"></form>
-        <label for="Name">Name</label> 
-        <input type="text" id="name" placeholder="Your name here">
+        <label for="Name">Email</label> 
+        <input type="text" id="name" placeholder="Your email here">
         <form method="get" action ="notifications.html"></form>
         <label for="Password">Password</label>
         <input type="password" id="Password" placeholder="password">
         <button id="login" type="button" class="btn btn-outline-light" id="Login" onclick="login()">Login</button>
+
+        <div id ="loggedincontrols" style ="display:none">
+            <div id="playeremail"></div>
+            <button type="button" class="btn btn-primary" onclick="events()">Events</button>
+            <button type="button" class="btn btn-primary" onclick="logout()">Events</button>
+
     </main>
     <footer>
         <a class='footer' href="https://github.com/MakennaAllred/startup">Makenna Allred's Github</a>
