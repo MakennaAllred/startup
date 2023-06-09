@@ -73,3 +73,8 @@ After talking with Professor Jensen I'm going to shift the idea of my web applic
 1. I created a working MongoDB account for my database and use that in my index.js and database.js files following the Simon format
 2. My endpoints are in my index.js file and I updated the functions so they are async and await and work with the server
 3. Everything should be in either the index.js or database.js file
+
+# Log In
+1. Everything you need should be in index.js, login.js, and database.js. I created functions that allow for new users and old users to be able to authenticate
+2. Log in information is stored in MongoDB and password is hashed and salted for security purposes
+3. Different options are available to users that are logged in versus not, once logged in, if you navigate back to the home page you will see a log out button and an events page. Also, the display hides certain controls depending on if you're logged in or not.
