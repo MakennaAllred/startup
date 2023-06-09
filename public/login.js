@@ -2,13 +2,13 @@
   const username = localStorage.getItem('userName');
   if (username) {
     document.querySelector('#name').textContent = username;
-    setDisplay('logincontrols', 'block');
-    setDisplay('loggedincontrols', 'none');
+    setDisplay('logincontrols', 'none');
+    setDisplay('loggedincontrols', 'block');
     setDisplay('eventcontrols', 'none');
   }
   else{
-    setDisplay('logincontrols', 'none')
-    setDisplay('loggedincontrols', 'block')
+    setDisplay('logincontrols', 'block')
+    setDisplay('loggedincontrols', 'none')
   }
 })();
 
