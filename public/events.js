@@ -59,20 +59,20 @@ addEventListener("load", (event) => {
       root.appendChild(accordion);
     }
   
-    const users = [
-      { name: "Genny" },
-      { name: "Chandler" },
-      { name: "Holly" },
-      { name: "James" }
-    ];
+    // const users = [
+    //   { name: "Genny" },
+    //   { name: "Chandler" },
+    //   { name: "Holly" },
+    //   { name: "James" }
+    // ];
   
-    const events = [
-      { name: "Genny", title: "dinner" },
-      { name: "Genny", title: "work meeting" },
-      { name: "Holly", title: "lunch with Mak" },
-      { name: "Chandler", title: "visit math TA" },
-      { name: "Chandler", title: "pick up Cricket from park" }
-    ];
+    // const events = [
+    //   { name: "Genny", title: "dinner" },
+    //   { name: "Genny", title: "work meeting" },
+    //   { name: "Holly", title: "lunch with Mak" },
+    //   { name: "Chandler", title: "visit math TA" },
+    //   { name: "Chandler", title: "pick up Cricket from park" }
+    // ];
   
     buildAccordionList(users, events);
     displayEvents();
@@ -151,13 +151,13 @@ addEventListener("load", (event) => {
   }
   
 
-  const users = [
-    "Genny" , "Chandler", "Holly", "James"
-  ];
+  // const users = [
+  //   "Genny" , "Chandler", "Holly", "James"
+  // ];
 
-  const events = [
-  "dinner", "work meeting", "date night", "study session"
-  ];
+  // const events = [
+  // "dinner", "work meeting", "date night", "study session"
+  // ];
 
 // function generateEvent() {
 //     const randomUser = users[Math.floor(Math.random()* users.length)];
