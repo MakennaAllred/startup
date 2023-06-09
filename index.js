@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const bcrpyt = require('bcrypt');
 const authcookie = 'token';
 
-const port = 5000;
+const port = 4000;
 
 //uses cookies for auth tokens
 app.use(cookieParser());
