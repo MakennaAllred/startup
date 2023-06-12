@@ -34,11 +34,12 @@ addEventListener("load", (event) => {
   
         let eventsList = document.createElement('div');
         eventsList.classList.add('accordion-body');
+        
   
         events.forEach((event) => {
-          if (event.name === user.name) {
+          if (event[0] === myname) {
             let eventItem = document.createElement('p');
-            eventItem.innerText = event.title;
+            eventItem.innerText = eventname;
             eventsList.appendChild(eventItem);
           }
         });
@@ -59,42 +60,14 @@ addEventListener("load", (event) => {
       root.appendChild(accordion);
     }
   
-    // const users = [
-    //   { name: "Genny" },
-    //   { name: "Chandler" },
-    //   { name: "Holly" },
-    //   { name: "James" }
-    // ];
-  
-    // const events = [
-    //   { name: "Genny", title: "dinner" },
-    //   { name: "Genny", title: "work meeting" },
-    //   { name: "Holly", title: "lunch with Mak" },
-    //   { name: "Chandler", title: "visit math TA" },
-    //   { name: "Chandler", title: "pick up Cricket from park" }
-    // ];
+   
   
     buildAccordionList(users, events);
     displayEvents();
   });
   
 
-  function setObject(){
-    let myname = localStorage.getItem("userName");
-    let event = document.querySelector('#title').value;
-    let time = document.querySelector("#datetime").value
-    let object = {
-        name: myname,
-        events: [
-            {
-                eventname: event,
-                eventtime: time
-            }
-        ]
-    };
-    localStorage.setItem('myname', JSON.stringify(object))
-    console.log(JSON.parse(localStorage.getItem("myname")));
-  }
+
 
   document.addEventListener('DOMContentLoaded', getObject);
   
@@ -103,7 +76,8 @@ addEventListener("load", (event) => {
       fetch(`/api/events/${user}`)
         .then((response) => response.json())
         .then((data) => {
-          const events = [data];
+          const events = data;
+          console.log(events);
           displayEvents(events);
         })
         .catch((error) => {
@@ -132,7 +106,6 @@ addEventListener("load", (event) => {
 
   function displayHolidays(holidays){
     let root = document.getElementById('myevents');
-    root.innerText = "";
     holidays.forEach((holiday) => {
       let el = document.createElement('li');
       el.innerText = `${holiday.name} - ${holiday.date}`;
@@ -143,7 +116,7 @@ addEventListener("load", (event) => {
   function displayEvents(events) {
     let object = JSON.parse(localStorage.getItem('myname'));
     let root = document.getElementById("myevents");
-    object.events.forEach((event) => {
+    events.forEach((event) => {
       let el = document.createElement('li');
       el.innerText = `${event.eventname} is happening at ${event.eventtime}`;
       root.appendChild(el);
@@ -151,24 +124,3 @@ addEventListener("load", (event) => {
   }
   
 
-  // const users = [
-  //   "Genny" , "Chandler", "Holly", "James"
-  // ];
-
-  // const events = [
-  // "dinner", "work meeting", "date night", "study session"
-  // ];
-
-// function generateEvent() {
-//     const randomUser = users[Math.floor(Math.random()* users.length)];
-//     const randomEvent = events[Math.floor(Math.random()* events.length)];
-//     const eventList = document.getElementById('eventList');
-//     const listItem = document.createElement('li');
-//     listItem.textContent = `${randomUser} scheduled ${randomEvent}`;
-//     eventList.insertBefore(listItem, eventList.firstChild); // Insert the new event at the beginning of the list
-
-//     if (eventList.children.length > 6) {
-//         eventList.lastChild.remove(); // Remove the oldest event if the list exceeds 10 events
-//     }
-//     } 
-//     setInterval(generateEvent, 7000);
