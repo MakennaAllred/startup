@@ -61,19 +61,7 @@ hr{
     border: 0;
 
 }
-table {
-    border: thin rgb(14, 124, 69) solid;
-}
 
-table thead{
-    border: thin rgb(14, 124, 69) solid;
-}
-table tr{
-    border: thin rgb(14, 124, 69) solid;
-}
-table td{
-    border: thin rgb(14, 124, 69) solid;
-}
 
 .footer{
 padding:0.3%;
@@ -124,4 +112,17 @@ margin: 2%;;
   p {
     background-color:rgb(147, 197, 255);
 
+  }
+
+  button.btn.btn-primary{
+    display: inline-block;
+    align-self: center;
+
+  }
+
+  #logincontrols{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    spacing: 2em;
   }

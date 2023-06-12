@@ -1,7 +1,14 @@
 function addEvent(){
+    let myname = localStorage.getItem("userName");
+    if(myname === ""){
+        window.alert("Please log in to add new event!");
+        window.location.href = 'index.html';
+    }
+    else{
 setObject();
-window.alert("New Event Added!")
+window.alert("New Event Added!");
 window.location.href = 'events.html';
+};
 }
 
 function setObject(){

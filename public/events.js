@@ -1,3 +1,7 @@
+const { getLatestEvent } = require("../database.js");
+// const ws = require("./peerProxy.js");
+// const newevent = 'NewEvent';
+
 
 addEventListener("load", (event) => {
     function buildAccordionList(users, events) {
@@ -66,7 +70,7 @@ addEventListener("load", (event) => {
     displayEvents();
   });
   
-
+  this.configureWebSocket();
 
 
   document.addEventListener('DOMContentLoaded', getObject);
@@ -77,7 +81,6 @@ addEventListener("load", (event) => {
         .then((response) => response.json())
         .then((data) => {
           const events = data;
-          console.log(events);
           displayEvents(events);
         })
         .catch((error) => {
@@ -120,7 +123,31 @@ addEventListener("load", (event) => {
       let el = document.createElement('li');
       el.innerText = `${event.eventname} is happening at ${event.eventtime}`;
       root.appendChild(el);
+      this.broadcastEvent(userName, event);
     });
   }
   
 
+  // function displayLatest() {
+  //   let root = document.getElementById('eventlist')
+  //   latest = getLatestEvent()
+  //   latest.forEach((e) =>{
+  //     let el = document.createElement('li');
+  //     el.innerText = `${eventuser} created ${eventname} at ${eventtime}`
+  //     root.appendChild(el);
+  //   });
+  // }
+
+  // configureWebSocket(){
+  //   const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+  //   this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+  // }
+
+  // broadcastEvent(from, type, value){
+  //   const event = {
+  //     from:from,
+  //     type: type,
+  //     value:value,
+  //   };
+  //   this.socket.send(JSON.stringify(event));
+  // }

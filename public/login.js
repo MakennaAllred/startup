@@ -2,14 +2,14 @@
   const username = localStorage.getItem('userName');
   if (username) {
     document.querySelector('#name').textContent = username;
-    setDisplay('logincontrols', 'block');
-    setDisplay('loggedincontrols', 'none');
+    setDisplay('logincontrols', 'none');
+    setDisplay('loggedincontrols', 'block');
     setDisplay('eventcontrols', 'none');
   }
   else{
     setDisplay('eventcontrols', 'none');
-    setDisplay('logincontrols', 'none')
-    setDisplay('loggedincontrols', 'block')
+    setDisplay('logincontrols', 'block')
+    setDisplay('loggedincontrols', 'none')
   }
 })();
 
@@ -47,7 +47,9 @@ function logout() {
   localStorage.removeItem('username');
   fetch(`/api/auth/logout`, {
     method: 'DELETE',
-  }).then(() => (window.location.href = '/'));
+  }).then(() => ((setDisplay('logincontrols', 'block')),
+  (setDisplay('loggedincontrols', 'none'))));
+
 }
 
 async function getUser(email) {
