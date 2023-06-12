@@ -12,6 +12,7 @@ function setObject(){
         name: myname,
         events: [
             {
+                eventuser: myname,
                 eventname: event,
                 eventtime: time
             }
@@ -19,7 +20,7 @@ function setObject(){
     };
     localStorage.setItem('myname', JSON.stringify(object))
     console.log(JSON.parse(localStorage.getItem("myname")));
-
+    console.log(object);
     fetch('api/events/add', {
         method: 'POST',
         headers: {'Content-Type': 'application/json',},

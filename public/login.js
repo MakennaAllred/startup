@@ -34,7 +34,7 @@ async function loginorCreate(endpoint){
   });
 
   if(response.ok) {
-    localStorage.setItem('userName', username.value);
+    localStorage.setItem('userName', username);
     window.location.href = 'events.html';
   }
   else{

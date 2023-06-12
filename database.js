@@ -42,8 +42,9 @@ async function addEvent(event) {
     return result;
 }
 
-async function getEvents() {
-    const events = await eventcollection.find({}).toArray();
+async function getEvents(name) {
+    const events = await eventcollection.find({eventuser: name}).toArray();
+    console.log(events);
     return events;
 }
 async function getLatestEvent () {

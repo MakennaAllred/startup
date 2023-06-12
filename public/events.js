@@ -99,7 +99,8 @@ addEventListener("load", (event) => {
   document.addEventListener('DOMContentLoaded', getObject);
   
   function getObject() {
-      fetch('/api/events')
+    let user = localStorage.getItem("userName");
+      fetch(`/api/events/${user}`)
         .then((response) => response.json())
         .then((data) => {
           const events = [data];
@@ -142,7 +143,6 @@ addEventListener("load", (event) => {
   function displayEvents(events) {
     let object = JSON.parse(localStorage.getItem('myname'));
     let root = document.getElementById("myevents");
-    root.innerHTML = ""
     object.events.forEach((event) => {
       let el = document.createElement('li');
       el.innerText = `${event.eventname} is happening at ${event.eventtime}`;

@@ -27,15 +27,17 @@ app.use(`/api`, apirouter);
 
 
 //get my events
-apirouter.get('/events', async (req, res) => {
-    const events = await db.getEvents();
+apirouter.get('/events/:user', async (req, res) => {
+    let user = req.params.user;
+    console.log(user);
+    const events = await db.getEvents(user);
     res.send(events)
 })
 
 //adding an event
 apirouter.post('/events/add', async (req, res) => {
-    const {eventname, eventtime} = req.body;
-    const event = {eventname: eventname, eventtime:eventtime};
+    const {eventuser, eventname, eventtime} = req.body;
+    const event = {eventuser: eventuser, eventname: eventname, eventtime:eventtime};
     await db.addEvent(event);
     res.json({ message: 'Event added successfully!'})})
 
