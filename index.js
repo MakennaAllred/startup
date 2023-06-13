@@ -4,7 +4,7 @@ const db = require('./database.js');
 const cookieParser = require('cookie-parser');
 const bcrpyt = require('bcrypt');
 const authcookie = 'token';
-const { peerProxy, send } = require('./peerproxy.js');
+const {peerProxy, send} =require('./peerproxy.js');
 
 const port = 4000;
 
@@ -38,25 +38,25 @@ apirouter.get('/events/:user', async (req, res) => {
 //adding an event
 apirouter.post('/events/add', async (req, res) => {
     console.log("add was called")
-    const { eventuser, eventname, eventtime } = req.body;
-    const event = { eventuser: eventuser, eventname: eventname, eventtime: eventtime };
+    const {eventuser, eventname, eventtime} = req.body;
+    const event = {eventuser: eventuser, eventname: eventname, eventtime:eventtime};
     await db.addEvent(event);
     send("new event!");
-    res.json({ message: 'Event added successfully!' })
+    res.json({ message: 'Event added successfully!'})
 })
 
 //updating the latest event list
-apirouter.get('/events/latest', async (req, res) => {
+apirouter.get('/events/latest', async (req,res) =>{
     const latest = await db.getLatestEvent();
     res.json(latest);
 })
 
-apirouter.post('/auth/create', async (req, res) => {
+apirouter.post('/auth/create', async (req,res) => {
     console.log(req.body);
     if (await db.getUser(req.body.email)) {
-        res.status(409).send({ msg: 'Already a user' });
+        res.status(409).send({msg: 'Already a user'});
     }
-    else {
+    else{
         const user = await db.createUser(req.body.email, req.body.password);
         setAuthCookie(res, user.token);
         res.send({
@@ -66,21 +66,21 @@ apirouter.post('/auth/create', async (req, res) => {
 });
 
 //gets token for a specific user
-apirouter.post('/auth/login', async (req, res) => {
+apirouter.post('/auth/login', async (req,res) => {
     console.log('post');
     const user = await db.getUser(req.body.email);
-    if (user) {
+    if(user) {
         if (await bcrpyt.compare(req.body.password, user.password)) {
             setAuthCookie(res, user.token);
-            res.send({ id: user._id });
+            res.send({id: user._id});
             return;
         }
     }
-    res.status(401).send({ msg: "Unauthorized" });
+    res.status(401).send({msg: "Unauthorized"});
 });
 
 //delete authentication token if stored in a cookie
-apirouter.delete('/auth/logout', (req, res) => {
+apirouter.delete('/auth/logout', (req,res) => {
     res.clearCookie(authcookie);
     res.status(204).end();
 });
@@ -91,10 +91,10 @@ apirouter.get('/user/:email', async (req, res) => {
     if (user) {
         const token = req?.cookies.token;
         res.send({
-            email: user.email, authenticated: token === user.token
-        }); return;
+            email:user.email, authenticated: token === user.token
+        }); return; 
     }
-    res.status(404).send({ msg: "Not found" });
+    res.status(404).send({msg: "Not found"});
 });
 
 var secureapirouter = express.Router();
@@ -106,13 +106,13 @@ secureapirouter.use(async (req, res, next) => {
     if (user) {
         next()
     }
-    else {
-        res.status(401).send({ msg: "Unauthorized" });
+    else{
+        res.status(401).send({msg: "Unauthorized"});
     }
 });
 
-function setAuthCookie(res, authtoken) {
-    res.cookie(authcookie, authtoken, {
+function setAuthCookie(res, authtoken){
+    res.cookie(authcookie, authtoken,{
         secure: true,
         httpOnly: true,
         sameSite: 'strict',

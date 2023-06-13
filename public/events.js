@@ -156,10 +156,10 @@ const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
 
   function displayMsg(msg) {
     console.log(msg);
-    // const chatText = document.querySelector('#player-messages');
-    // chatText.innerHTML =
-    //   `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+    const chatText = document.querySelector('#eventlist');
+    chatText.innerHTML = `${msg}`;    
   }
+
 
   
 
