@@ -118,9 +118,9 @@ addEventListener("load", (event) => {
   function displayEvents(events) {
     let object = JSON.parse(localStorage.getItem('myname'));
     let root = document.getElementById("myevents");
-    events.forEach((event) => {
+    events.slice(0,6).forEach((e) => {
       let el = document.createElement('li');
-      el.innerText = `${event.eventname} is happening at ${event.eventtime}`;
+      el.innerText = `${e.eventname} is happening at ${e.eventtime}`;
       root.appendChild(el);
     });
   }
