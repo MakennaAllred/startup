@@ -30,7 +30,7 @@ app.use(`/api`, apirouter);
 //get my events
 apirouter.get('/events/:user', async (req, res) => {
     let user = req.params.user;
-    console.log(user);
+    // console.log(user);
     const events = await db.getEvents(user);
     res.send(events)
 })
@@ -43,6 +43,7 @@ apirouter.post('/events/add', async (req, res) => {
     const msg = `${eventuser} scheduled ${eventname} at ${eventtime}`;
     await db.addEvent(event);
     send(msg);
+    console.log(msg);
     res.json({ message: 'Event added successfully!'})
 })
 
@@ -53,7 +54,7 @@ apirouter.get('/events/latest', async (req,res) =>{
 })
 
 apirouter.post('/auth/create', async (req,res) => {
-    console.log(req.body);
+    // console.log(req.body);
     if (await db.getUser(req.body.email)) {
         res.status(409).send({msg: 'Already a user'});
     }
@@ -68,7 +69,7 @@ apirouter.post('/auth/create', async (req,res) => {
 
 //gets token for a specific user
 apirouter.post('/auth/login', async (req,res) => {
-    console.log('post');
+    // console.log('post');
     const user = await db.getUser(req.body.email);
     if(user) {
         if (await bcrpyt.compare(req.body.password, user.password)) {
@@ -122,7 +123,7 @@ function setAuthCookie(res, authtoken){
 
 //tells what port to use
 const httpService = app.listen(port, () => {
-    console.log(`listening on port ${port}`);
+    // console.log(`listening on port ${port}`);
 });
 
 peerProxy(httpService);
