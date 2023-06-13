@@ -1,6 +1,16 @@
 const {WebSocketServer} = require('ws');
 const uuid = require('uuid');
 
+ //keeps track of connections
+ let connections = [];
+
+ // forwards messages to everyone but sender
+ function send (message) {
+     connections.forEach((c) => {
+        c.ws.send(message);
+     });
+ };
+
 function peerProxy(httpServer){
     const wss = new WebSocketServer({noServer: true});
 
@@ -11,22 +21,14 @@ function peerProxy(httpServer){
         });
     })
 
-    //keeps track of connections
-    let connections = [];
+   
 
     wss.on('connection', (ws) => {
         const connection = { id: uuid.v4(), alive: true, ws: ws};
         connections.push(connection); //adds connection to array 
 
 
-    // forwards messages to everyone but sender
-        ws.on('message', function message(data) {
-            connections.forEach((c) => {
-                if(c.id !== connection.id) {
-                    c.ws.send(data);
-                }
-            });
-        });
+    
 
         //remove closed connection
         ws.on('close', () =>{
@@ -57,4 +59,4 @@ function peerProxy(httpServer){
     }, 10000);
 }
 
-module.exports = {peerProxy};
+module.exports = {peerProxy, send};

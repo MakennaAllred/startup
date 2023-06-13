@@ -6,6 +6,7 @@ function addEvent(){
         window.location.href = 'index.html';
     }
     else{
+        //broadcast event in latest events
 setObject();
 window.alert("New Event Added!");
 window.location.href = 'events.html';

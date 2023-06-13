@@ -69,7 +69,7 @@ addEventListener("load", (event) => {
     displayEvents();
   });
   
-  // socket.configureWebSocket();
+  
 
 
   document.addEventListener('DOMContentLoaded', getObject);
@@ -135,18 +135,32 @@ addEventListener("load", (event) => {
     });
   }
 
-// const socket = {
-//   configureWebSocket(){
-//     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-//     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
-//   },
+  const socket = configureWebSocket();
 
-//   broadcastEvent(from, type, value){
-//     const event = {
-//       from:from,
-//       type: type,
-//       value:value,
-//     };
-//     this.socket.send(JSON.stringify(event));
-//   }
-// };
+  function configureWebSocket(){
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket.onopen = (event) => {
+      displayMsg('system', 'game', 'connected');
+    };
+    socket.onclose = (event) => {
+      displayMsg('system', 'game', 'disconnected');
+    };
+    socket.onmessage = async (event) => {
+      const msg = event.data;
+        displayMsg("x", "y", msg);
+    };
+
+    return socket;
+  }
+
+  function displayMsg(cls, from, msg) {
+    console.log(msg);
+    // const chatText = document.querySelector('#player-messages');
+    // chatText.innerHTML =
+    //   `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+  }
+
+  
+
+  
