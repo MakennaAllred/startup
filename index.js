@@ -40,8 +40,9 @@ apirouter.post('/events/add', async (req, res) => {
     console.log("add was called")
     const {eventuser, eventname, eventtime} = req.body;
     const event = {eventuser: eventuser, eventname: eventname, eventtime:eventtime};
+    const msg = `${eventuser} scheduled ${eventname} at ${eventtime}`;
     await db.addEvent(event);
-    send("new event!");
+    send(msg);
     res.json({ message: 'Event added successfully!'})
 })
 
