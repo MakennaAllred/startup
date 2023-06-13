@@ -148,13 +148,13 @@ const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     };
     socket.onmessage = async (event) => {
       const msg = event.data;
-        displayMsg("x", "y", msg);
+        displayMsg( msg);
     };
 
     return socket;
   }
 
-  function displayMsg(cls, from, msg) {
+  function displayMsg(msg) {
     console.log(msg);
     // const chatText = document.querySelector('#player-messages');
     // chatText.innerHTML =
