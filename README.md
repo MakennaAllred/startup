@@ -78,3 +78,8 @@ After talking with Professor Jensen I'm going to shift the idea of my web applic
 1. Everything you need should be in index.js, login.js, and database.js. I created functions that allow for new users and old users to be able to authenticate
 2. Log in information is stored in MongoDB and password is hashed and salted for security purposes
 3. Different options are available to users that are logged in versus not, once logged in, if you navigate back to the home page you will see a log out button and an events page. Also, the display hides certain controls depending on if you're logged in or not.
+
+# Web Socket
+1. Back end is peerproxy.js file, front end listens on events.js. Once a new event is added, it's then broadcasts to all the connections what user created what event.
+2. You might have to duplicate the tab and add an event in order for it to display under latest events but that's how it's been working for me.
+ 
