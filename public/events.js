@@ -1,5 +1,4 @@
-// const { getLatestEvent } = require("../database.js");
-const ws = require("./peerProxy.js");
+
 const newevent = 'NewEvent';
 
 
@@ -70,7 +69,7 @@ addEventListener("load", (event) => {
     displayEvents();
   });
   
-  socket.configureWebSocket();
+  // socket.configureWebSocket();
 
 
   document.addEventListener('DOMContentLoaded', getObject);
@@ -136,18 +135,18 @@ addEventListener("load", (event) => {
     });
   }
 
-const socket = {
-  configureWebSocket(){
-    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-    this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
-  },
+// const socket = {
+//   configureWebSocket(){
+//     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+//     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+//   },
 
-  broadcastEvent(from, type, value){
-    const event = {
-      from:from,
-      type: type,
-      value:value,
-    };
-    this.socket.send(JSON.stringify(event));
-  }
-};
+//   broadcastEvent(from, type, value){
+//     const event = {
+//       from:from,
+//       type: type,
+//       value:value,
+//     };
+//     this.socket.send(JSON.stringify(event));
+//   }
+// };

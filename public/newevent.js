@@ -1,4 +1,4 @@
-//link to event.js
+
 function addEvent(){
     let myname = localStorage.getItem("userName");
     if(myname === ""){
@@ -7,7 +7,6 @@ function addEvent(){
     }
     else{
 setObject();
-socket.broadcastEvent(userName, event);
 window.alert("New Event Added!");
 window.location.href = 'events.html';
 };
