@@ -1,8 +1,3 @@
-
-const newevent = 'NewEvent';
-
-
-addEventListener("load", (event) => {
     function buildAccordionList(users, events) {
       let root = document.getElementById('root');
       let accordion = document.createElement('div');
@@ -40,9 +35,9 @@ addEventListener("load", (event) => {
         
   
         events.forEach((event) => {
-          if (event[0] === myname) {
+          if (event.user === user.name) {
             let eventItem = document.createElement('p');
-            eventItem.innerText = eventname;
+            eventItem.innerText = `${event.name} - ${event.time}`;
             eventsList.appendChild(eventItem);
           }
         });
@@ -62,14 +57,7 @@ addEventListener("load", (event) => {
   
       root.appendChild(accordion);
     }
-  
-   
-  
-    buildAccordionList(users, events);
-    displayEvents();
-  });
-  
-  
+
 
 
   document.addEventListener('DOMContentLoaded', getObject);
@@ -90,7 +78,18 @@ addEventListener("load", (event) => {
 
   document.addEventListener('DOMContentLoaded', fetchholidays);
 
- 
+
+  // function ListUsers() {
+  //   let col = document.getElementById('users');
+  //   user.forEach((u) => {
+  //     let bu = document.createElement('button');
+  //     bu.innerText = `${u.userName}`
+  //     col.appendChild(bu);
+  // })
+
+  // }
+
+ // document.addEventListener('DOMContentLoaded', ListUsers);
 
   function fetchholidays(){
     fetch('https://date.nager.at/api/v3/PublicHolidays/2023/US')
@@ -155,7 +154,7 @@ const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
   }
 
   function displayMsg(msg) {
-    console.log(msg);
+    // console.log(msg);
     const chatText = document.querySelector('#eventList');
     chatText.innerHTML = `${msg}`;    
   }

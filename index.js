@@ -23,8 +23,17 @@ app.set('trust proxy', true);
 var apirouter = express.Router();
 app.use(`/api`, apirouter);
 
-
-
+// get an array of logged-in users
+apirouter.get('/api/loggedin', (req, res) =>{
+    User.find({isLoggedin: true})
+    .then ((users) =>{
+        res.json(users);
+        buildAccordionList(users);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    })
+})
 
 
 //get my events
