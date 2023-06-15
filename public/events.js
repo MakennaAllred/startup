@@ -1,5 +1,4 @@
 
-
 async function  buildAccordionList() {
       let root = document.getElementById('root');
       let accordion = document.createElement('div');
