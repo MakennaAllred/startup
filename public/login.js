@@ -1,5 +1,7 @@
+let username = null;
 (async () => {
-  const username = localStorage.getItem('userName');
+  const response = await fetch(`/api/cookie`);
+  username = await response.json();
   if (username) {
     document.querySelector('#name').textContent = username;
     setDisplay('logincontrols', 'none');
@@ -44,8 +46,7 @@ async function loginorCreate(endpoint){
 }
 
 function logout() {
-  localStorage.removeItem('username');
-  fetch(`/api/auth/logout`, {
+  fetch(`/api/auth/logout/`, {
     method: 'DELETE',
   }).then(() => ((setDisplay('logincontrols', 'block')),
   (setDisplay('loggedincontrols', 'none'))));

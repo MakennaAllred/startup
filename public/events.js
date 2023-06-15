@@ -1,9 +1,12 @@
-    function buildAccordionList(users, events) {
+
+
+async function  buildAccordionList() {
       let root = document.getElementById('root');
       let accordion = document.createElement('div');
       accordion.classList.add('accordion');
       accordion.id = 'accordionPanelsStayOpenExample';
-  
+      const users = await fetch('/api/loggedin');
+      
       users.forEach((user, index) => {
         let accordionItem = document.createElement('div');
         accordionItem.classList.add('accordion-item');

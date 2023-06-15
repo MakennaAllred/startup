@@ -28,7 +28,7 @@ apirouter.get('/api/loggedin', (req, res) =>{
     User.find({isLoggedin: true})
     .then ((users) =>{
         res.json(users);
-        buildAccordionList(users);
+        
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -91,7 +91,8 @@ apirouter.post('/auth/login', async (req,res) => {
 });
 
 //delete authentication token if stored in a cookie
-apirouter.delete('/auth/logout', (req,res) => {
+apirouter.delete('/auth/logout/:email', async (req,res) => {
+    const del = await db.logoutuser(req.params.email);
     res.clearCookie(authcookie);
     res.status(204).end();
 });
@@ -106,6 +107,12 @@ apirouter.get('/user/:email', async (req, res) => {
         }); return; 
     }
     res.status(404).send({msg: "Not found"});
+});
+
+apirouter.get('/cookie', async (req, res) =>{
+    const a = await db.getUserbyToken(req?.cookies.token);
+    console.log(a);
+    res.send(a);
 });
 
 var secureapirouter = express.Router();
