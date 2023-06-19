@@ -4,24 +4,38 @@ import './app.css';
 
 export default function App() {
     return (
-        <div class='app'>
+    <div className='app'>
     <header>
         <h1>Cal Share</h1>
-        <!--this is for the buttons at the top of the page to navigate through app-->
-        <nav id="eventcontrols">
-            <a class="btn btn-primary" href="index.html" role="button"> Home</a>
+        <nav className="eventcontrols">
+            <a className="btn btn-primary" href="index.html" role="button"> Home</a>
             <a class="btn btn-primary" href="events.html" role="button"> Events</a>
-            <!-- <a class="btn btn-primary" href="calendar.html" role="button"> Calendar</a> -->
             <a class="btn btn-primary"href="proposal.html" role="button"> Add New Event</a>
         </nav>
     </header>
-    <!--using main instead of body because it will be the main content of the webpage here-->
-    <main>
-        components go here
+   <main>
+        <div id ="logincontrols">
+            <h1 style="justify-content: center;">Please Log in</h1>
+        <label for="Name">Email</label> 
+        <input type="text" id="name" placeholder="Your email here">
+        <label for="Password">Password</label>
+        <input type="password" id="Password" placeholder="password">
+        <div>
+        <button id="login" type="button" class="btn btn-outline-light" id="Login" onclick="loginUser()">Login</button>
+        <button type="button" class="btn btn-outline-light" onclick="createUser()">Create</button>
+        </div>
+
+        <div id ="loggedincontrols">
+            <h1>Log In Successful</h1>
+            <div id="playeremail"></div>
+            <button type="button" class="btn btn-primary" onclick="events()">Events</button>
+            <button type="button" class="btn btn-primary" onclick="logout()">Log out</button>
+            </div>
+
     </main>
     <footer>
         <a class='footer' href="https://github.com/MakennaAllred/startup">Makenna Allred's Github</a>
     </footer>
-    </div>
-    )
+</div>
+)
 }
