@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
+import { Login } from './login/login';
 
 export default function App() {
     return (
@@ -14,7 +15,8 @@ export default function App() {
         </nav>
     </header>
    <main>
-        <div id ="logincontrols">
+    <Login/>
+        {/* <div id ="logincontrols">
             <h1 style="justify-content: center;">Please Log in</h1>
         <label for="Name">Email</label> 
         <input type="text" id="name" placeholder="Your email here">
@@ -30,7 +32,7 @@ export default function App() {
             <div id="playeremail"></div>
             <button type="button" class="btn btn-primary" onclick="events()">Events</button>
             <button type="button" class="btn btn-primary" onclick="logout()">Log out</button>
-            </div>
+            </div> */}
 
     </main>
     <footer>
