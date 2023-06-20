@@ -16,9 +16,9 @@ export default function App() {
     <header>
         <h1>Cal Share</h1>
         <nav className="eventcontrols">
-            <NavLink className="btn btn-primary" to="" role="button"> Home</NavLink>
-            <NavLink class="btn btn-primary" to="events" role="button"> Events</NavLink>
-            <NavLink class="btn btn-primary" t="proposal" role="button"> Add New Event</NavLink>
+            <NavLink className='nav-link' to=""> Home</NavLink>
+            <NavLink class='nav-link' to="events"> Events</NavLink>
+            <NavLink class='nav-link' to="proposal"> Add New Event</NavLink>
         </nav>
     </header>
     <Routes>
