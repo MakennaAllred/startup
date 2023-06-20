@@ -29,7 +29,6 @@ function getUserbyToken(token){
 async function createUser(email, password){
     const hashpass = await bcrpyt.hash(password, 7);
     const user = {
-        isLoggedin: true,
         email: email,
         password: hashpass,
         token: uuid.v4(),

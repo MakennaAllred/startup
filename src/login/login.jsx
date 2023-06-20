@@ -4,8 +4,9 @@ import { Authenticated } from './authenticated';
 import { AuthState } from './authState';
 
 export function Login({userName, authState, onAuthChange}) {
+    console.log(authState);
     return (
-    <main className='controls'>
+    <main>
         <div>
             {authState !== AuthState.Unknown && <h1>Please Log in </h1>}
             {authState === AuthState.Authenticated && (

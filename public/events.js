@@ -62,7 +62,7 @@ async function  buildAccordionList() {
 
 
 
-  document.addEventListener('DOMContentLoaded', getObject);
+  // document.addEventListener('DOMContentLoaded', getObject);
   
   function getObject() {
     let user = localStorage.getItem("userName");
@@ -78,7 +78,7 @@ async function  buildAccordionList() {
     }
     
 
-  document.addEventListener('DOMContentLoaded', fetchholidays);
+  // document.addEventListener('DOMContentLoaded', fetchholidays);
 
 
   // function ListUsers() {

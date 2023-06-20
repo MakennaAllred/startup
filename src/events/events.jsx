@@ -3,6 +3,7 @@ import React from 'react';
 export function Events() {
    //display users on events page of logged in users
    const [users, setUsers] = React.useState([]);
+   const [events, setEvents] = React.useState([]);
    React.useEffect(() => {
        fetch('/api/cookie')
            .then((response) => response.json())
@@ -22,7 +23,7 @@ export function Events() {
            if (users.length){
                for (const [i,users] of users.entries()){
                    userslist.push (
-                   <li>{users.name[i]}</li>
+                   <li key={i}> {users.name[i]}</li>
                );
            }
        } else{
@@ -31,14 +32,14 @@ export function Events() {
            );
        }
 
-       // display my events on the events page
-       const[events, setEvents] = React.useState([]);
-
+//        // display my events on the events page
+       
        React.useEffect(() => {
            let user = localStorage.getItem('userName');
            fetch(`/api/events/${user}`)
            .then((response) =>response.json())
            .then((events) => {
+                console.log(events);
                setEvents(events);
                localStorage.setItem('events', JSON.stringify(events));
            })
@@ -51,13 +52,14 @@ export function Events() {
        }, []);
 
        const eventslist = [];
-       if (events.length) {
-           for (const [i,events] of events.entries()){
-               eventslist.push(
-                   <li>{events[i]}</li>
-               )
-           }
+       console.log(events.length);
+       if(events.length){
+        for (const [i, event] of events.entries()){
+            eventslist.push(
+             <li key={i}> {event.eventname} is happening at {event.eventtime}</li>
+        )}
        }
+    
 
     return (
     <main>
@@ -65,15 +67,15 @@ export function Events() {
             <div className="row">
               <div className="col">
                 <h3>Users</h3>
-                <div id="users"> {userslist}</div>
+                <ul id="loggedusers"> {userslist}</ul>
               </div>
-              <div class="col">
+              <div className="col">
                 <h3>My Events</h3>
-                  <div id ="myevents"> {eventslist} </div>
+                  <ul id ="myevents"> {eventslist} </ul>
               </div>
               <div className="col">
                 <h3>Latest Events</h3>
-                <div id="eventList"></div>
+                <ul id="Latestlist"></ul>
               </div>
             </div>
           </div>        

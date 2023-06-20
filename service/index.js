@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const db = require('./service/database.js');
+const db = require('./database.js');
 const cookieParser = require('cookie-parser');
 const bcrpyt = require('bcrypt');
 const authcookie = 'token';
@@ -139,7 +139,7 @@ function setAuthCookie(res, authtoken){
 
 //tells what port to use
 const httpService = app.listen(port, () => {
-    // console.log(`listening on port ${port}`);
+     console.log(`listening on port ${port}`);
 });
 
 peerProxy(httpService);
