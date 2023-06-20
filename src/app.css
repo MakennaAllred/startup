@@ -17,12 +17,14 @@ h1{
     border-bottom:thin solid rgb(14, 124, 69);
 }
 
-nav{
+
+nav.eventcontrols{
     padding: 0.2%;
+    flex-direction: row;
 }
 menu{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex: 0 10em;
     justify-content: center;
     align-items: center;
