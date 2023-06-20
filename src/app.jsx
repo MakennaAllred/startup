@@ -2,23 +2,84 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import { Login } from './login/login';
-import {Events} from 'events/events';
+import {Events} from './events/events';
 import { NewEvent } from './newevent/newevent';
-import {BrowserRouer, NavLink, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, NavLink, Route, Routes} from 'react-router-dom';
 
 function NotFound(){
     return <main className='containter-fluid bg-secondary text-center'> 404: Return to sender. Address unknown.</main>
 }
+
+
+
 export default function App() {
+    //display users on events page of logged in users
+    const [users, setUsers] = React.useState([]);
+    React.useEffect(() => {
+        fetch('/api/cookie')
+            .then((response) => response.json())
+            .then((users) => {
+                setUsers(users);
+                localStorage.setItem('users', JSON.stringify(users));
+            })
+            .catch(() => {
+                const usersText = localStorage.getItem('users');
+                if (usersText){
+                    setUsers(JSON.parse(usersText));
+                }
+            });
+        },[]);
+
+        const userslist = [];
+            if (users.length){
+                for (const [i,users] of users.entries()){
+                    userslist.push (
+                    <li>{users.name[i]}</li>
+                );
+            }
+        } else{
+            userslist.push(
+            <li>No users logged in</li>
+            );
+        }
+
+        // display my events on the events page
+        const[events, setEvents] = React.useState([]);
+
+        React.useEffect(() => {
+            let user = localStorage.getItem('userName');
+            fetch(`/api/events/${user}`)
+            .then((response) =>response.json())
+            .then((events) => {
+                setEvents(events);
+                localStorage.setItem('events', JSON.stringify(events));
+            })
+            .catch(() => {
+                const eventsText = localStorage.getItem('events');
+                if (eventsText) {
+                    setEvents(JSON.parse(eventsText));
+                }
+            });
+        }, []);
+
+        const eventslist = [];
+        if (events.length) {
+            for (const [i,events] of events.entries()){
+                eventslist.push(
+                    <li>{events[i]}</li>
+                )
+            }
+        }
+        
     return (
-        <BrowserRouer>
+        <BrowserRouter>
     <div className='app'>
     <header>
         <h1>Cal Share</h1>
         <nav className="eventcontrols">
             <NavLink className='nav-link' to=""> Home</NavLink>
-            <NavLink class='nav-link' to="events"> Events</NavLink>
-            <NavLink class='nav-link' to="proposal"> Add New Event</NavLink>
+            <NavLink className='nav-link' to="events"> Events</NavLink>
+            <NavLink className='nav-link' to="proposal"> Add New Event</NavLink>
         </nav>
     </header>
     <Routes>
@@ -29,32 +90,13 @@ export default function App() {
     </Routes>
    <main>
     <Login/>
-        {/* <div id ="logincontrols">
-            <h1 style="justify-content: center;">Please Log in</h1>
-        <label for="Name">Email</label> 
-        <input type="text" id="name" placeholder="Your email here">
-        <label for="Password">Password</label>
-        <input type="password" id="Password" placeholder="password">
-        <div>
-        <button id="login" type="button" class="btn btn-outline-light" id="Login" onclick="loginUser()">Login</button>
-        <button type="button" class="btn btn-outline-light" onclick="createUser()">Create</button>
-        </div>
-
-        <div id ="loggedincontrols">
-            <h1>Log In Successful</h1>
-            <div id="playeremail"></div>
-            <button type="button" class="btn btn-primary" onclick="events()">Events</button>
-            <button type="button" class="btn btn-primary" onclick="logout()">Log out</button>
-            </div> */}
-    
-
     <Events/>
     <NewEvent/>
     </main>
     <footer>
-        <a class='footer' href="https://github.com/MakennaAllred/startup">Makenna Allred's Github</a>
+        <a className='footer' href="https://github.com/MakennaAllred/startup">Makenna Allred's Github</a>
     </footer>
 </div>
-</BrowserRouer>
+</BrowserRouter>
 )
 }
