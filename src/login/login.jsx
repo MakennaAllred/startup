@@ -1,27 +1,25 @@
 import React from 'react';
+import {Unauthenticated} from './unauthenticated';
+import { Authenticated } from './authenticated';
+import { AuthState } from './authState';
 
-export function Login() {
-    
+export function Login({userName, authState, onAuthChange}) {
     return (
-    <main>
-        <div id ="logincontrols">
-            <h1>Please Log in</h1>
-        <label htmlFor="Name">Email</label> 
-        <input type="text" id="name" placeholder="Your email here"> </input>
-        <label htmlFor="Password">Password</label>
-        <input type="password" id="Password" placeholder="password"></input>
+    <main className='controls'>
         <div>
-        <button type="button" className="btn btn-outline-light" id="Login" onClick={loginUser}>Login</button>
-        <button type="button" className="btn btn-outline-light" onClick={createUser}>Create</button>
+            {authState !== AuthState.Unknown && <h1>Please Log in </h1>}
+            {authState === AuthState.Authenticated && (
+                <Authenticated userName={userName} onLogout={() => onAuthChange(userName,AuthState.Unauthenticated)}/>
+            )}
+            {authState === AuthState.Unauthenticated && (
+                <Unauthenticated
+                userName={userName}
+                onLogin={(loginUser) => {
+                    onAuthChange(loginUser, AuthState.Authenticated);
+                }}
+                />
+            )}
         </div>
-        </div>
-
-        <div id ="loggedincontrols">
-            <h1>Log In Successful</h1>
-            <div id="playeremail"></div>
-            <button type="button" className="btn btn-primary" onClick={events}>Events</button>
-            <button type="button" className="btn btn-primary" onClick={logout}>Log out</button>
-            </div>
-        </main>
+    </main>
     );
 }
