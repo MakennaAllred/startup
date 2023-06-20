@@ -5,21 +5,21 @@ export function Login() {
     <main>
         <div id ="logincontrols">
             <h1>Please Log in</h1>
-        <label for="Name">Email</label> 
+        <label htmlFor="Name">Email</label> 
         <input type="text" id="name" placeholder="Your email here"> </input>
-        <label for="Password">Password</label>
+        <label htmlFor="Password">Password</label>
         <input type="password" id="Password" placeholder="password"></input>
         <div>
-        <button type="button" class="btn btn-outline-light" id="Login" onclick="loginUser()">Login</button>
-        <button type="button" class="btn btn-outline-light" onclick="createUser()">Create</button>
+        <button type="button" className="btn btn-outline-light" id="Login" onClick={loginUser}>Login</button>
+        <button type="button" className="btn btn-outline-light" onClick={createUser}>Create</button>
         </div>
         </div>
 
         <div id ="loggedincontrols">
             <h1>Log In Successful</h1>
             <div id="playeremail"></div>
-            <button type="button" class="btn btn-primary" onclick="events()">Events</button>
-            <button type="button" class="btn btn-primary" onclick="logout()">Log out</button>
+            <button type="button" className="btn btn-primary" onClick={events}>Events</button>
+            <button type="button" className="btn btn-primary" onClick={logout}>Log out</button>
             </div>
         </main>
     );

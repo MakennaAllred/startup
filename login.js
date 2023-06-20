@@ -72,20 +72,3 @@ function events(){
   window.location.href = 'events.html';
 }
 
-
-const[scores, setScores] = React.useState([]);
-React.useEffect(() => {
-  fetch('/api/scores')
-  .then((response) => response.json())
-  .then((scores) => {
-    setScores(scores);
-    localStorage.setItem('scores',JSON.stringify(scores));
-  
-  })
-  .catch(() => {
-    const scoresText = localStorage.getItem('scores');
-    if(scoresText) {
-      setScores(JSON.parse(scoresText))
-    }
-  })
-})
