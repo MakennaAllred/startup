@@ -82,4 +82,8 @@ After talking with Professor Jensen I'm going to shift the idea of my web applic
 # Web Socket
 1. Back end is peerproxy.js file, front end listens on events.js. Once a new event is added, it's then broadcasts to all the connections what user created what event.
 2. You might have to duplicate the tab and add an event in order for it to display under latest events but that's how it's been working for me.
+
+# React
+1. I used react and vite to bundle the project. I used hooks and react components to render my web page. I didn't implement the latest events column because I couldn't get it working right, but everything else works really well and meets the criteria.
+   
  
