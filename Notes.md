@@ -452,3 +452,55 @@ The middleware function parameters represent the HTTP request object (req), the 
 ![image](https://github.com/MakennaAllred/startup/assets/132696940/f34aa483-6e84-472f-88c9-f8dc6755446e)
 
 
+# Midterm Review 
+1.
+```
+let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let c = a.reduce((total, number) => {
+  return (total + number)
+});
+console.log(c);
+```
+
+- outputs 55
+
+2. How would you use JavaScript to select an element with the id of header and change the text color of that element to red?
+    - ```
+       document.getElementById('header').color = 'red';
+      ```
+   
+3. Given the following HTML what JS could you use to set the text 'yes' to 'cow' and leave the 'no' unaffected 
+```
+<p>no</p>
+<p class="demo">yes</p>
+<div class="demo">no</div> 
+```
+
+- ```
+  document.querySelector("p.demo").textContent = "cow";
+  ```
+
+4. Which of the following correctly describes JSON?
+  - JSON objects contain attribute-value pairs, and a server can use the JSON format to send a web browser some data
+
+5. Which of the following is true when the `-la` parameter is specified for the `ls` console command?
+  - outputs all files and outputs a long listing
+
+6. Which of the following is true for the domain name `demo.simon.myfunkychicken.click`?
+   - click is a top level domain(TLD), my funkychickens.click is a root domian, and the whole thing is a subdomain
+
+7.
+```
+const p = new Promise((resolve, reject) => {
+reject(false);
+});
+p
+.then((a) => console.log('A'))
+.then((b) => console.log('B'))
+.catch((c) => console.log('C'))
+.finally(() => console.log('D')); 
+```
+- outputs C D
+
+
+
