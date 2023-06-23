@@ -503,4 +503,28 @@ p
 - outputs C D
 
 
+# URL 
+![image](https://github.com/MakennaAllred/startup/assets/132696940/c8bdfff1-5374-4f26-8346-9afcadbfd849)
+
+# Ports 
+![image](https://github.com/MakennaAllred/startup/assets/132696940/2b8abfa8-cc25-407e-871c-98c4d8894a66)
+
+# HTTPS 
+![image](https://github.com/MakennaAllred/startup/assets/132696940/f5417970-36a1-47d0-aac2-0a18f0fe0495)
+
+
+# Storage
+![image](https://github.com/MakennaAllred/startup/assets/132696940/07feebc9-df0c-4f6c-8883-b070358aeb19)
+
+# Toolchains
+![image](https://github.com/MakennaAllred/startup/assets/132696940/faf676ae-d2f8-43a5-9116-0f80812b494d)
+
+# Vite
+![image](https://github.com/MakennaAllred/startup/assets/132696940/d8ea3d85-df84-4d81-8d94-8a8c8a44cf84)
+
+# Reactivity
+Making the UI react to changes in user input or data, is one of the architectural foundations of React. React enables reactivity with three major pieces of a React component: props, state, and render.
+
+
+
 
